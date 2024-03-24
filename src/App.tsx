@@ -5,12 +5,13 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import ResponsiveAppBar from "./ResponsiveAppBar/ResponsiveAppBar";
 
 const pdfURL = './resume.pdf';
 
 function App() {
     return (
-        <div className="App">
+        /*<div className="App">
             <header className="App-header">
                 <h1>{"Sergio Ariel Juarez"}</h1>
                 <img src={logo} className="App-logo" alt="logo"/>
@@ -18,7 +19,8 @@ function App() {
                     {"Proximamente..."}
                 </p>
             </header>
-        </div>
+        </div>*/
+        <ResponsiveAppBar/>
     );
 }
 
