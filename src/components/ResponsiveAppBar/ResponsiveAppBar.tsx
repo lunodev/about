@@ -7,19 +7,32 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import logo from '../logo193.png';
+// import AdbIcon from '@mui/icons-material/Adb';
+import logo from '../../logo193.png';
 import { Link } from "react-router-dom";
+import LangSelector from "../../features/langSelector/LangSelector";
+import {useAppSelector} from "../../app/hooks";
+import {useEffect, useState} from "react";
+import { JsonData } from '../../data/data'
 
 const pages = ['home', 'about', 'contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function ResponsiveAppBar() {
+    const langSelector = useAppSelector(state => state.langSelector)
+    const [currentLang, setCurrentLang] = useState(langSelector.value)
+
+
+    useEffect(() => {
+        setCurrentLang(langSelector.value)
+    }, [langSelector.value]);
+
+
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -57,7 +70,7 @@ function ResponsiveAppBar() {
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
                                     letterSpacing: '.3rem',
-                                    color: 'inherit',
+                                    color: '#282c34',
                                     textDecoration: 'none',
                                 }}
                             >
@@ -118,7 +131,7 @@ function ResponsiveAppBar() {
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
                                     letterSpacing: '.3rem',
-                                    color: 'green',
+                                    color: '#282c34',
                                     textDecoration: 'none',
                                 }}
                             >
@@ -149,6 +162,7 @@ function ResponsiveAppBar() {
                                     </IconButton>
                                 </Tooltip>
                             </Link>
+                            <LangSelector/>
                             <Menu
                                 sx={{mt: '45px'}}
                                 id="menu-appbar"
@@ -175,6 +189,7 @@ function ResponsiveAppBar() {
                     </Toolbar>
                 </Container>
             </AppBar>
+            <Typography variant={"h4"} color={"yellow"}>{(JsonData as any)[currentLang].Building.label}</Typography>
         </header>
     );
 }

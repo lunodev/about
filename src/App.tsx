@@ -5,19 +5,20 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
+import Home from "./components/pages/Home/Home";
+import About from "./components/pages/About/About";
+import Contact from "./components/pages/Contact/Contact";
+import { JsonData } from './data/data'
 
 
 function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path={"about/contact"} element={ <Contact/> } />
-                <Route path={"about/home"} element={ <Home/> } />
-                <Route path={"about/about"} element={ <About/> } />
-                <Route path={"about"} element={ <Home/> } />
+                <Route path={"about/contact"} element={ <Contact data={JsonData}/> } />
+                <Route path={"about/home"} element={ <Home data={JsonData}/> } />
+                <Route path={"about/about"} element={ <About data={JsonData}/> } />
+                <Route path={"about"} element={ <Home data={JsonData}/> } />
             </Routes>
         </div>
     );

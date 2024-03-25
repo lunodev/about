@@ -2,8 +2,25 @@ a {
   text-decoration: none;
 }
 
+.ContactInfo {
+  justify-content: center;
+}
+
 .AppSection {
   padding: 1rem 0;
+}
+
+.AppSectionParagraph {
+  font-size: 1.3rem;
+  text-align: justify;
+  letter-spacing: .13rem;
+  padding: 1rem 10rem;
+}
+
+.ContactInfoParagraph {
+  font-size: 1.3rem;
+  text-align: center;
+  letter-spacing: .13rem;
 }
 
 .App {
