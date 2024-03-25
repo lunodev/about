@@ -142,12 +142,14 @@ function ResponsiveAppBar() {
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>
-                            <Tooltip title="About">
-                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0, margin: "1rem"}}>
-                                    {/*<Avatar  sx={{minWidth: "20rem"}} src={logo}/>*/}
-                                    <img src={logo} className="App-logo" alt="logo"/>
-                                </IconButton>
-                            </Tooltip>
+                            <Link to={`/about/about`}>
+                                <Tooltip title="About">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{p: 0, margin: "1rem"}}>
+                                        {/*<Avatar  sx={{minWidth: "20rem"}} src={logo}/>*/}
+                                        <img src={logo} className="App-logo" alt="logo"/>
+                                    </IconButton>
+                                </Tooltip>
+                            </Link>
                             <Menu
                                 sx={{mt: '45px'}}
                                 id="menu-appbar"
