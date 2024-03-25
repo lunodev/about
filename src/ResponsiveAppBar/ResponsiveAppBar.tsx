@@ -111,7 +111,6 @@ function ResponsiveAppBar() {
                                 variant="h5"
                                 noWrap
                                 component="a"
-                                href="#about"
                                 sx={{
                                     mr: 2,
                                     display: {xs: 'flex', md: 'none'},
@@ -119,7 +118,7 @@ function ResponsiveAppBar() {
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
                                     letterSpacing: '.3rem',
-                                    color: 'inherit',
+                                    color: 'green',
                                     textDecoration: 'none',
                                 }}
                             >
@@ -144,7 +143,7 @@ function ResponsiveAppBar() {
                         <Box sx={{flexGrow: 0}}>
                             <Link to={`/about/about`}>
                                 <Tooltip title="About">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{p: 0, margin: "1rem"}}>
+                                    <IconButton onClick={handleOpenUserMenu} sx={{p: 0, margin: ".2rem"}}>
                                         {/*<Avatar  sx={{minWidth: "20rem"}} src={logo}/>*/}
                                         <img src={logo} className="App-logo" alt="logo"/>
                                     </IconButton>
