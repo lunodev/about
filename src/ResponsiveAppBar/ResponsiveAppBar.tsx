@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-                        <Link to={"/about"}>
+                        <Link to={"/about/about"}>
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -95,7 +95,7 @@ function ResponsiveAppBar() {
                                 }}
                             >
                                 {pages.map((page: string) => (
-                                    <Link to={`/${page}`}>
+                                    <Link to={`/about/${page}`}>
                                         <MenuItem key={page} onClick={handleCloseNavMenu}>
                                             <Typography textAlign="center">{
                                                 page
@@ -106,27 +106,30 @@ function ResponsiveAppBar() {
                             </Menu>
                         </Box>
                         {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href="#about"
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'flex', md: 'none'},
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            Cheko Devs
-                        </Typography>
+                        <Link to={"/about/about"}>
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                href="#about"
+                                sx={{
+                                    mr: 2,
+                                    display: {xs: 'flex', md: 'none'},
+                                    flexGrow: 1,
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                Cheko Devs
+                            </Typography>
+                        </Link>
+
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page: string) => (
-                                <Link to={`/${page}`}>
+                                <Link to={`/about/${page}`}>
                                     <Button
                                         key={page}
                                         onClick={handleCloseNavMenu}

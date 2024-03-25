@@ -14,10 +14,9 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path={"contact"} element={ <Contact/> } />
-                <Route path={"about"} element={ <About/> } />
-                <Route path={"home"} element={ <Home/> } />
-                <Route path={"/"} element={ <Home/> } />
+                <Route path={"about/contact"} element={ <Contact/> } />
+                <Route path={"about/home"} element={ <Home/> } />
+                <Route path={"about/about"} element={ <About/> } />
             </Routes>
         </div>
     );
