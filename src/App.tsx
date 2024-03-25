@@ -6,11 +6,13 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import ResponsiveAppBar from "./ResponsiveAppBar/ResponsiveAppBar";
+import { Switch, Route } from "react-router-dom"
 
 
 function App() {
     return (
         <div className="App">
+
             <ResponsiveAppBar/>
             <header className="App-header">
                 <h1>{"Sergio Ariel Juarez"}</h1>
