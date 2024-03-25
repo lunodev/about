@@ -7,7 +7,9 @@ function About() {
     return (
         <>
             <ResponsiveAppBar/>
-            <Typography variant="h1">About</Typography>
+            <div className="AppSection">
+                <Typography variant="h1">About</Typography>
+            </div>
         </>
     );
 }

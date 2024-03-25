@@ -7,7 +7,9 @@ function Contact() {
     return (
         <>
             <ResponsiveAppBar/>
-            <Typography variant="h1">Contact</Typography>
+            <div className="AppSection">
+                <Typography variant="h1">Contact</Typography>
+            </div>
         </>
     );
 }

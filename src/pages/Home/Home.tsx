@@ -7,7 +7,9 @@ function Home() {
     return (
         <>
             <ResponsiveAppBar/>
-            <Typography variant="h1">Home</Typography>
+            <div className="AppSection">
+                <Typography variant="h1">Home</Typography>
+            </div>
         </>
     );
 }
