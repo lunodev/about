@@ -9,12 +9,14 @@ import Home from "./components/pages/Home/Home";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
 import { JsonData } from './data/data'
+import Blog from './components/pages/Blog/Blog';
 
 
 function App() {
     return (
         <div className="App">
             <Routes>
+                <Route path={"about/blog"} element={ <Blog data={JsonData}/> } />
                 <Route path={"about/contact"} element={ <Contact data={JsonData}/> } />
                 <Route path={"about/home"} element={ <Home data={JsonData}/> } />
                 <Route path={"about/about"} element={ <About data={JsonData}/> } />

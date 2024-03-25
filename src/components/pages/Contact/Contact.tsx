@@ -19,8 +19,8 @@ function Contact(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{props.data[currentLang].Contact.label}</Typography>
-                <Typography variant="h2">{props.data[currentLang].Contact.Info.label}</Typography>
+                <Typography variant="h1">{capitalize(props.data[currentLang].Contact.label)}</Typography>
+                <Typography variant="h2">{capitalize(props.data[currentLang].Contact.Info.label)}</Typography>
                 <p>
                 <span>
                   <i className='fa fa-map-marker'></i>

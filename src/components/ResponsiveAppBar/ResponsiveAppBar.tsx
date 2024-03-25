@@ -18,15 +18,21 @@ import LangSelector from "../../features/langSelector/LangSelector";
 import {useAppSelector} from "../../app/hooks";
 import {useEffect, useState} from "react";
 import { JsonData } from '../../data/data'
+import {capitalize} from "@mui/material";
 
-const pages = ['home', 'about', 'contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 
 function ResponsiveAppBar() {
     const langSelector = useAppSelector(state => state.langSelector)
     const [currentLang, setCurrentLang] = useState(langSelector.value)
-
+    const pages = [
+        'home',
+        'about',
+        'contact',
+        'blog'
+    ];
+    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
     useEffect(() => {
         setCurrentLang(langSelector.value)
@@ -52,6 +58,7 @@ function ResponsiveAppBar() {
         setAnchorElUser(null);
     };
 
+
     return (
         <header className="App-header">
             <AppBar position="static" color={"warning"}>
@@ -69,7 +76,6 @@ function ResponsiveAppBar() {
                                     display: {xs: 'none', md: 'flex'},
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
-                                    letterSpacing: '.3rem',
                                     color: '#282c34',
                                     textDecoration: 'none',
                                 }}
@@ -130,7 +136,6 @@ function ResponsiveAppBar() {
                                     flexGrow: 1,
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
-                                    letterSpacing: '.3rem',
                                     color: '#282c34',
                                     textDecoration: 'none',
                                 }}
@@ -189,7 +194,7 @@ function ResponsiveAppBar() {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Typography variant={"h4"} color={"yellow"}>{(JsonData as any)[currentLang].Building.label}</Typography>
+            <Typography variant={"h4"} color={"yellow"}>{(JsonData as any)[currentLang].Building.label.toUpperCase()}</Typography>
         </header>
     );
 }

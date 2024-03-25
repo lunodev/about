@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
+import {capitalize} from "@mui/material";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
 import {useAppSelector} from "../../../app/hooks";
-import {capitalize} from "@mui/material";
 
 
-function About(props: {data: any}) {
+function Blog(props: {data: any}) {
     const langSelector = useAppSelector(state => state.langSelector)
     const [currentLang, setCurrentLang] = useState(langSelector.value)
 
@@ -19,11 +19,11 @@ function About(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{capitalize(props.data[currentLang].About.label)}</Typography>
-                <p className="AppSectionParagraph">{props.data[currentLang].About.presentation}</p>
+                <Typography variant="h1">{capitalize(props.data[currentLang].Blog.label)}</Typography>
+                <p>Blog en construcción</p>
             </div>
         </>
     );
 }
 
-export default About;
+export default Blog;

@@ -3,6 +3,9 @@ export const JsonData = {
         "Building": {
             label: "web under construction",
         },
+        "Blog": {
+            label: "blog",
+        },
         "Home": {
             label: "home",
         },
@@ -45,6 +48,9 @@ export const JsonData = {
         "Building": {
             label: "sitio en construcción",
         },
+        "Blog": {
+            label: "blog",
+        },
         "Home": {
             label: "inicio",
         },
@@ -86,6 +92,9 @@ export const JsonData = {
     "it": {
         "Building": {
             label: "sito in costruzione",
+        },
+        "Blog": {
+            label: "blog",
         },
         "Home": {
             label: "bentornati",

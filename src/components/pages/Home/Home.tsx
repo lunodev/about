@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
 import {useAppSelector} from "../../../app/hooks";
+import {capitalize} from "@mui/material";
 
 
 function Home(props: {data: any}) {
@@ -18,7 +19,7 @@ function Home(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{props.data[currentLang].Home.label}</Typography>
+                <Typography variant="h1">{capitalize(props.data[currentLang].Home.label)}</Typography>
             </div>
         </>
     );
