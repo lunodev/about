@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {LANG_EN} from "../../constants/languages";
 
 
 export const langSelector = createSlice({
     name: 'selector',
     initialState: {
-        value: "en",
+        value: LANG_EN,
     },
     reducers: {
         setCurrentLang: (state, action) => {

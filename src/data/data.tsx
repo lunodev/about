@@ -1,5 +1,14 @@
 export const JsonData = {
     "en": {
+        "English": {
+            label: "english",
+        },
+        "Spanish": {
+            label: "spanish",
+        },
+        "Italian": {
+            label: "italian",
+        },
         "Building": {
             label: "web under construction",
         },
@@ -45,6 +54,15 @@ export const JsonData = {
         }
     },
     "es": {
+        "English": {
+            label: "inglés",
+        },
+        "Spanish": {
+            label: "español",
+        },
+        "Italian": {
+            label: "italiano",
+        },
         "Building": {
             label: "sitio en construcción",
         },
@@ -90,6 +108,15 @@ export const JsonData = {
         }
     },
     "it": {
+        "English": {
+            label: "inglese",
+        },
+        "Spanish": {
+            label: "spagnolo",
+        },
+        "Italian": {
+            label: "italiano",
+        },
         "Building": {
             label: "sito in costruzione",
         },

@@ -9,30 +9,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 // import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
-import logo from '../../logo193.png';
-import { Link } from "react-router-dom";
+import logo from '../../assets/logo193.png';
+import {Link} from "react-router-dom";
 import LangSelector from "../../features/langSelector/LangSelector";
 import {useAppSelector} from "../../app/hooks";
 import {useEffect, useState} from "react";
-import { JsonData } from '../../data/data'
-import {capitalize} from "@mui/material";
-
-
+import {JsonData} from '../../data/data'
+import {PAGES} from "../../constants/pages";
 
 
 function ResponsiveAppBar() {
-    const langSelector = useAppSelector(state => state.langSelector)
-    const [currentLang, setCurrentLang] = useState(langSelector.value)
-    const pages = [
-        'home',
-        'about',
-        'contact',
-        'blog'
-    ];
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    const langSelector = useAppSelector(state => state.langSelector);
+    const [currentLang, setCurrentLang] = useState(langSelector.value);
+
 
     useEffect(() => {
         setCurrentLang(langSelector.value)
@@ -40,22 +31,13 @@ function ResponsiveAppBar() {
 
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        return; // disabled function open menu
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
 
@@ -80,7 +62,7 @@ function ResponsiveAppBar() {
                                     textDecoration: 'none',
                                 }}
                             >
-                                Cheko Devs
+                                {`Cheko Devs`}
                             </Typography>
                         </Link>
 
@@ -113,11 +95,11 @@ function ResponsiveAppBar() {
                                     display: {xs: 'block', md: 'none'},
                                 }}
                             >
-                                {pages.map((page: string) => (
+                                {PAGES.map((page: string) => (
                                     <Link to={`/about/${page}`}>
                                         <MenuItem key={page} onClick={handleCloseNavMenu}>
                                             <Typography textAlign="center">{
-                                                page
+                                                (JsonData as any)[currentLang][page].label
                                             }</Typography>
                                         </MenuItem>
                                     </Link>
@@ -140,61 +122,38 @@ function ResponsiveAppBar() {
                                     textDecoration: 'none',
                                 }}
                             >
-                                Cheko Devs
+                                {`Cheko Devs`}
                             </Typography>
                         </Link>
 
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                            {pages.map((page: string) => (
+                            {PAGES.map((page: string) => (
                                 <Link to={`/about/${page}`}>
                                     <Button
                                         key={page}
                                         onClick={handleCloseNavMenu}
                                         sx={{my: 2, color: 'white', display: 'block'}}
-                                    >
-                                        {page}
-                                    </Button>
+                                    >{
+                                        (JsonData as any)[currentLang][page].label
+                                    }</Button>
                                 </Link>
                             ))}
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>
                             <Link to={`/about/about`}>
-                                <Tooltip title="About">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{p: 0, margin: ".2rem"}}>
-                                        {/*<Avatar  sx={{minWidth: "20rem"}} src={logo}/>*/}
-                                        <img src={logo} className="App-logo" alt="logo"/>
-                                    </IconButton>
-                                </Tooltip>
+                                <IconButton sx={{p: 0, margin: ".2rem 1rem"}}>
+                                    <img src={logo} className="App-logo" alt="logo"/>
+                                </IconButton>
                             </Link>
                             <LangSelector/>
-                            <Menu
-                                sx={{mt: '45px'}}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
+
                         </Box>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Typography variant={"h4"} color={"yellow"}>{(JsonData as any)[currentLang].Building.label.toUpperCase()}</Typography>
+            <Typography variant={"h4"}
+                        color={"yellow"}>{(JsonData as any)[currentLang].Building.label.toUpperCase()}</Typography>
         </header>
     );
 }

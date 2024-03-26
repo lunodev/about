@@ -6,10 +6,6 @@ a {
   justify-content: center;
 }
 
-css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
-  background-color: red;
-}
-
 .AppSection {
   padding: 1rem 0;
 }
@@ -39,6 +35,13 @@ css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
   height: 8vmin;
   pointer-events: none;
 }
+
+.AutocompleteItem {
+  opacity: .8;
+  height: 8vmin;
+  pointer-events: none;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
