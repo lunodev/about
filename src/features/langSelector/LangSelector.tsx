@@ -42,7 +42,7 @@ function LangSelector() {
     return (
         <Box sx={{display: "inline-block"}}>
             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                <img src={`../${language.code}.png`} className="App-logo" alt="logo"/>
+                <img src={`./${language.code}.png`} className="App-logo" alt="logo"/>
             </IconButton>
             {/*<Autocomplete
                 title={`Select one language`}
@@ -71,7 +71,7 @@ function LangSelector() {
             >
                 {LANGUAGES.map(language => (
                     <MenuItem onClick={() => handleOnChangeLanguage(language)} key={language.code}>
-                            <img src={`../${language.code}.png`} className="App-logo" alt="logo"/>
+                            <img src={`./${language.code}.png`} className="App-logo" alt="logo"/>
                         <Typography sx={{marginLeft: ".7rem"}}>
                             {language.name}
                         </Typography>
