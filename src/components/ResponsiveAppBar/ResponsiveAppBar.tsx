@@ -96,7 +96,7 @@ function ResponsiveAppBar() {
                                 }}
                             >
                                 {PAGES.map((page: string) => (
-                                    <Link to={`/about/${page}`}>
+                                    <Link to={`/about/${page.toLowerCase()}`}>
                                         <MenuItem key={page} onClick={handleCloseNavMenu}>
                                             <Typography textAlign="center">{
                                                 (JsonData as any)[currentLang][page].label
@@ -128,7 +128,7 @@ function ResponsiveAppBar() {
 
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             {PAGES.map((page: string) => (
-                                <Link to={`/about/${page}`}>
+                                <Link to={`/about/${page.toLowerCase()}`}>
                                     <Button
                                         key={page}
                                         onClick={handleCloseNavMenu}
