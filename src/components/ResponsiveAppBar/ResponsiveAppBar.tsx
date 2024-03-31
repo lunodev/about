@@ -47,24 +47,24 @@ function ResponsiveAppBar() {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-                        <Link to={"/about/about"}>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="a"
-                                href="#about"
-                                sx={{
-                                    mr: 2,
-                                    display: {xs: 'none', md: 'flex'},
-                                    fontFamily: 'monospace',
-                                    fontWeight: 700,
-                                    color: '#282c34',
-                                    textDecoration: 'none',
-                                }}
-                            >
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="#about"
+                            sx={{
+                                mr: 2,
+                                display: {xs: 'none', md: 'flex'},
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                color: '#282c34',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Link to={"/about/about"}>
                                 {`Cheko Devs`}
-                            </Typography>
-                        </Link>
+                            </Link>
+                        </Typography>
 
                         <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                             <IconButton
@@ -98,8 +98,8 @@ function ResponsiveAppBar() {
                                 {PAGES.map((page: string) => (
                                     <Link to={`/about/${page.toLowerCase()}`}>
                                         <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center">{
-                                                (JsonData as any)[currentLang][page].label
+                                            <Typography color={"black"} textAlign="center">{
+                                                (JsonData as any)[currentLang][page].label.toUpperCase()
                                             }</Typography>
                                         </MenuItem>
                                     </Link>
@@ -107,12 +107,13 @@ function ResponsiveAppBar() {
                             </Menu>
                         </Box>
                         {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-                        <Link to={"/about/about"}>
+                        <div>
                             <Typography
                                 variant="h5"
                                 noWrap
-                                component="a"
+                                component={"div"}
                                 sx={{
+                                    wordBreak: "break-word",
                                     mr: 2,
                                     display: {xs: 'flex', md: 'none'},
                                     flexGrow: 1,
@@ -122,9 +123,12 @@ function ResponsiveAppBar() {
                                     textDecoration: 'none',
                                 }}
                             >
-                                {`Cheko Devs`}
+                                <Link to={"/about/about"}>
+                                    {`Cheko Devs`}
+                                </Link>
                             </Typography>
-                        </Link>
+                        </div>
+
 
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             {PAGES.map((page: string) => (
@@ -142,8 +146,12 @@ function ResponsiveAppBar() {
 
                         <Box sx={{flexGrow: 0}}>
                             <Link to={`/about/about`}>
-                                <IconButton sx={{p: 0, margin: ".2rem 1rem"}}>
-                                    <img src={logo} className="App-logo" alt="logo"/>
+                                <IconButton sx={{p: 0, margin: ".2rem .5rem"}}>
+                                    <img
+                                        className={"Avatar-logo App-logo"}
+                                        src={logo}
+                                        alt={"Avatar"}
+                                    />
                                 </IconButton>
                             </Link>
                             <LangSelector/>
@@ -151,8 +159,9 @@ function ResponsiveAppBar() {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Typography variant={"h4"}
-                        color={"yellow"}>{(JsonData as any)[currentLang].Building.label.toUpperCase()}</Typography>
+            <Typography className={"Section-Title Building"} component={"h1"}>
+                {(JsonData as any)[currentLang].Building.label.toUpperCase()}
+            </Typography>
         </header>
     );
 }

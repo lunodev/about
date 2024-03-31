@@ -41,11 +41,25 @@ function LangSelector() {
 
     return (
         <Box sx={{display: "inline-block"}}>
-            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                <img src={`./${language.code}.png`} className="App-logo" alt="logo"/>
+            <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{
+                    p: 0,
+                    background: "black",
+                    "&:hover": {
+                        // backgroundColor: '#ffffff'
+                    },
+                }}
+            >
+                <img
+                    src={`./${language.code}.png`}
+                    className={"Avatar-logo App-language"}
+                    alt={"bandera que representa el idioma"}
+                />
                 <Typography
-                    variant={"h4"}
-                    color={"white"}
+                    fontWeight={"500"}
+                    fontSize={"2.5rem"}
+                    color={"rgba(255,255,255,0.71)"}
                     sx={{position: "absolute", left: "0", right: "0"}}>
                     {language.code.toUpperCase()}
                 </Typography>
@@ -61,6 +75,7 @@ function LangSelector() {
                 onChange={handleOnChangeLanguage}
             />*/}
             <Menu
+                onBackdropClick={handleCloseUserMenu}
                 sx={{mt: '45px'}}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
@@ -76,8 +91,15 @@ function LangSelector() {
                 open={Boolean(anchorElUser)}
             >
                 {LANGUAGES.map(language => (
-                    <MenuItem onClick={() => handleOnChangeLanguage(language)} key={language.code}>
-                            <img src={`./${language.code}.png`} className="App-logo" alt="logo"/>
+                    <MenuItem
+                        onClick={() => handleOnChangeLanguage(language)}
+                        key={language.code}
+                    >
+                        <img
+                            src={`./${language.code}.png`}
+                            className={"Avatar-logo App-language"}
+                            alt={"bandera que representa el idioma"}
+                        />
                         <Typography sx={{marginLeft: ".7rem"}}>
                             {language.name}
                         </Typography>

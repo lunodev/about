@@ -19,14 +19,18 @@ function Contact(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{capitalize(props.data[currentLang].Contact.label)}</Typography>
-                <Typography variant="h2">{capitalize(props.data[currentLang].Contact.Info.label)}</Typography>
+                <h1 className={"Section-Title"}>
+                    {capitalize(props.data[currentLang].Contact.label)}
+                </h1>
+                <h2 className={"Section-SubTitle"}>
+                    {capitalize(props.data[currentLang].Contact.Info.label)}
+                </h2>
                 <p>
                 <span>
                   <i className='fa fa-map-marker'></i>
                     {props.data ? `${capitalize(props.data[currentLang].Contact.address.label)}` : 'loading'}
                 </span>
-                    {props.data ?  `: ${capitalize(props.data[currentLang].Contact.address.value)}` : 'loading'}
+                    {props.data ? `: ${capitalize(props.data[currentLang].Contact.address.value)}` : 'loading'}
                 </p>
             </div>
         </>

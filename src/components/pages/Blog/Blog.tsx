@@ -19,7 +19,9 @@ function Blog(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{capitalize(props.data[currentLang].Blog.label)}</Typography>
+                <h1 className={"Section-Title"}>
+                    {capitalize(props.data[currentLang].Blog.label)}
+                </h1>
                 <p>Blog en construcción</p>
             </div>
         </>

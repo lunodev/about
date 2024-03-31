@@ -19,7 +19,9 @@ function Home(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{capitalize(props.data[currentLang].Home.label)}</Typography>
+                <h1 className={"Section-Title"}>
+                    {capitalize(props.data[currentLang].Home.label)}
+                </h1>
             </div>
         </>
     );

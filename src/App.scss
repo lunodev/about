@@ -13,8 +13,7 @@ a {
 .AppSectionParagraph {
   font-size: 1.3rem;
   text-align: justify;
-  letter-spacing: .13rem;
-  padding: 1rem 10rem;
+  padding: 1rem 2rem;
 }
 
 .ContactInfoParagraph {
@@ -30,10 +29,44 @@ a {
   min-height: 100vh;
 }
 
-.App-logo {
-  opacity: .8;
+.Avatar-logo {
   height: 4rem;
   pointer-events: none;
+}
+
+.App-logo {
+  opacity: .8;
+}
+
+.App-language {
+  opacity: .7;
+}
+
+.Section-Title {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+.Section-SubTitle {
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.Building {
+  color: yellow;
+}
+
+@media only screen and (max-width: 400px) {
+  .App-logo {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .AppSectionParagraph {
+    letter-spacing: .13rem;
+    margin: 3rem 3rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

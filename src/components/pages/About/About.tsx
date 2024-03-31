@@ -19,7 +19,9 @@ function About(props: {data: any}) {
         <>
             <ResponsiveAppBar/>
             <div className="AppSection">
-                <Typography variant="h1">{capitalize(props.data[currentLang].About.label)}</Typography>
+                <h1 className={"Section-Title"}>
+                    {capitalize(props.data[currentLang].About.label)}
+                </h1>
                 <p className="AppSectionParagraph">{props.data[currentLang].About.presentation}</p>
             </div>
         </>
