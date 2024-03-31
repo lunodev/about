@@ -22,8 +22,8 @@ function App() {
                 <Route path={"about/about"} element={ <About data={JsonData}/> } />
                 <Route path={"about"} element={ <Home data={JsonData}/> } />
                 <Route
-                    path="*"
-                    element={<Navigate to="about" replace />}
+                    path={"about/*"}
+                    element={<Navigate to={"/about"} replace/>}
                 />
             </Routes>
         </div>
