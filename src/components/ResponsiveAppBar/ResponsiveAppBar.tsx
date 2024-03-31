@@ -147,7 +147,6 @@ function ResponsiveAppBar() {
                                 </IconButton>
                             </Link>
                             <LangSelector/>
-
                         </Box>
                     </Toolbar>
                 </Container>

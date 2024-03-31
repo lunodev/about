@@ -43,6 +43,12 @@ function LangSelector() {
         <Box sx={{display: "inline-block"}}>
             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                 <img src={`./${language.code}.png`} className="App-logo" alt="logo"/>
+                <Typography
+                    variant={"h4"}
+                    color={"white"}
+                    sx={{position: "absolute", left: "0", right: "0"}}>
+                    {language.code.toUpperCase()}
+                </Typography>
             </IconButton>
             {/*<Autocomplete
                 title={`Select one language`}
