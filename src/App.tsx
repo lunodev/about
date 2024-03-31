@@ -4,7 +4,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import Home from "./components/pages/Home/Home";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
@@ -21,6 +21,10 @@ function App() {
                 <Route path={"about/home"} element={ <Home data={JsonData}/> } />
                 <Route path={"about/about"} element={ <About data={JsonData}/> } />
                 <Route path={"about"} element={ <Home data={JsonData}/> } />
+                <Route
+                    path="*"
+                    element={<Navigate to="about" replace />}
+                />
             </Routes>
         </div>
     );
