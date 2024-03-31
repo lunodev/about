@@ -15,17 +15,17 @@ import Blog from './components/pages/Blog/Blog';
 function App() {
     return (
         <div className="App">
-                <Routes>
-                    <Route path={"about/blog"} element={ <Blog data={JsonData}/> } />
-                    <Route path={"about/contact"} element={ <Contact data={JsonData}/> } />
-                    <Route path={"about/home"} element={ <Home data={JsonData}/> } />
-                    <Route path={"about/about"} element={ <About data={JsonData}/> } />
-                    <Route path={"about"} element={ <Home data={JsonData}/> } />
-                    <Route
-                        path={"about/*"}
-                        element={<Navigate to={"/about"} replace/>}
-                    />
-                </Routes>
+            <Routes>
+                <Route path={"about/blog"} element={<Blog data={JsonData}/>}/>
+                <Route path={"about/contact"} element={<Contact data={JsonData}/>}/>
+                <Route path={"about/home"} element={<Home data={JsonData}/>}/>
+                <Route path={"about/about"} element={<About data={JsonData}/>}/>
+                <Route path={"about"} element={<Home data={JsonData}/>}/>
+                <Route
+                    path={"about/*"}
+                    element={<Navigate to={"/about"} replace/>}
+                />
+            </Routes>
         </div>
     );
 }

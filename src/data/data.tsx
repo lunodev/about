@@ -26,7 +26,7 @@ export const JsonData = {
             label: "contact",
             "address": {
                 label: "address",
-                value: "Piazza Nicola Basile 123, Alessandria (15121), AL, Italia)"
+                value: "Alexandria (15121), AL, Italy)"
             },
             "phone": {
                 label: "phone number",
@@ -80,7 +80,7 @@ export const JsonData = {
             label: "contacto",
             "address": {
                 label: "Dirección",
-                value: "Piazza Nicola Basile 123, Alessandria (15121), AL, Italia)"
+                value: "Alejandría (15121), AL, Italia)"
             },
             "phone": {
                 label: "Celular",
@@ -127,14 +127,14 @@ export const JsonData = {
             label: "bentornati",
         },
         "About": {
-            label: "su di me",
+            label: "chi sono",
             presentation: "Sono un creatore, appassionato di logica e informatica. Sono motivato a pensare e trovare soluzioni diverse in ogni sistema che lo richiede e che mi viene incontro. Sono un Tecnico di Produzione Audiovisiva e Analista di Sistemi. Lavoro nel campo delle soluzioni web da più di cinque anni, principalmente come sviluppatore Front-end React con Typescript. Ho anche svolto piccoli lavori accademici come sviluppatore Full-stack con Typescript. Attualmente sono alla ricerca di nuove sfide, migliorando costantemente le mie capacità e conoscenze come sviluppatore."
         },
         "Contact": {
             label: "contatto",
             "address": {
                 label: "indirizzo",
-                value: "Piazza Nicola Basile 123, Alessandria (15121), AL, Italia)"
+                value: "Alessandria (15121), AL, Italia)"
             },
             "phone": {
                 label: "cellulare",
