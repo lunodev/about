@@ -1,23 +1,23 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 // import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
-import logo from '../../assets/logo193.png';
 import {Link} from "react-router-dom";
-import LangSelector from "../../features/langSelector/LangSelector";
+import LangAvatarSelector from "../LangAvatarSelector/LangAvatarSelector";
 import {useAppSelector} from "../../app/hooks";
-import {useEffect, useState} from "react";
 import {JsonData} from '../../data/data'
 import {PAGES} from "../../constants/pages";
+import {Grid} from '@mui/material';
+import ChekoAvatar from "../ChekoAvatar/ChekoAvatar";
+import LogoNickname from "../LogoNickname/LogoNickname";
 
 
 function ResponsiveAppBar() {
@@ -42,31 +42,14 @@ function ResponsiveAppBar() {
 
 
     return (
-        <header className="App-header">
-            <AppBar position="static" color={"warning"}>
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                        {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="#about"
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'none', md: 'flex'},
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                color: '#282c34',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <Link to={"/about/about"}>
-                                {`Cheko Devs`}
-                            </Link>
-                        </Typography>
-
-                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+        <>
+            <AppBar className={"App-Bar"} position={"static"} color={"warning"}>
+                <Toolbar>
+                    <Grid container>
+                        <Grid className={"Logo-nickname"} item xs={2} sm={3} sx={{display: {xs: 'none', sm: 'flex'}}}>
+                            <LogoNickname/>
+                        </Grid>
+                        <Grid className={"Menu-pages-xs"} item xs={2} sx={{display: {xs: 'flex', sm: 'none'}}}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -97,72 +80,46 @@ function ResponsiveAppBar() {
                             >
                                 {PAGES.map((page: string) => (
                                     <Link to={`/about/${page.toLowerCase()}`}>
-                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                            <Typography color={"black"} textAlign="center">{
+                                        <MenuItem
+                                            key={page}
+                                            onClick={handleCloseNavMenu}
+                                        >
+                                            <Typography fontWeight={"normal"}>{
                                                 (JsonData as any)[currentLang][page].label.toUpperCase()
                                             }</Typography>
                                         </MenuItem>
                                     </Link>
                                 ))}
                             </Menu>
-                        </Box>
-                        {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-                        <div>
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component={"div"}
-                                sx={{
-                                    wordBreak: "break-word",
-                                    mr: 2,
-                                    display: {xs: 'flex', md: 'none'},
-                                    flexGrow: 1,
-                                    fontFamily: 'monospace',
-                                    fontWeight: 700,
-                                    color: '#282c34',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                <Link to={"/about/about"}>
-                                    {`Cheko Devs`}
-                                </Link>
-                            </Typography>
-                        </div>
-
-
-                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                        </Grid>
+                        <Grid className={"Logo-nickname-xs Logo-nickname"} item xs={6} sx={{display: {xs: 'flex', sm: 'none'}}}>
+                            <LogoNickname/>
+                        </Grid>
+                        <Grid className={"Menu-pages"} item xs={0} sm={6} sx={{display: {xs: 'none', sm: 'flex'}}}>
                             {PAGES.map((page: string) => (
-                                <Link to={`/about/${page.toLowerCase()}`}>
-                                    <Button
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{my: 2, color: 'white', display: 'block'}}
-                                    >{
-                                        (JsonData as any)[currentLang][page].label
-                                    }</Button>
-                                </Link>
+                                <Button
+                                    key={page}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{my: 2, color: 'white', display: 'block'}}
+                                >
+                                    <Link to={`/about/${page.toLowerCase()}`}>
+                                        {(JsonData as any)[currentLang][page].label}
+                                    </Link>
+                                </Button>
                             ))}
-                        </Box>
-
-                        <Box sx={{flexGrow: 0}}>
-                            <Link to={`/about/about`}>
-                                <IconButton sx={{p: 0, margin: ".2rem .5rem"}}>
-                                    <img
-                                        className={"Avatar-logo App-logo"}
-                                        src={logo}
-                                        alt={"Avatar"}
-                                    />
-                                </IconButton>
-                            </Link>
-                            <LangSelector/>
-                        </Box>
-                    </Toolbar>
-                </Container>
+                        </Grid>
+                        <Grid className={"Avatars-group"} item xs={4} sm={3}>
+                            <ChekoAvatar/>
+                            <LangAvatarSelector/>
+                        </Grid>
+                    </Grid>
+                </Toolbar>
             </AppBar>
-            <Typography className={"Section-Title Building"} component={"h1"}>
+
+            <Typography className={"Section-title Building"} component={"h1"}>
                 {(JsonData as any)[currentLang].Building.label.toUpperCase()}
             </Typography>
-        </header>
+        </>
     );
 }
 

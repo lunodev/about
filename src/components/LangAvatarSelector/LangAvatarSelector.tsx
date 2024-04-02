@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react'
 import {LANGUAGE, LANGUAGES} from "../../constants/languages";
 import {Box} from '@mui/material';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {setCurrentLang} from "./langSelector";
+import {setCurrentLang} from "../../features/langSelector/langSelector";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 
 
-function LangSelector() {
+function LangAvatarSelector() {
     const dispatch = useAppDispatch();
     const langCodeOnStore = useAppSelector(state => state.langSelector.value);
     const [language, updateLanguage] = useState<LANGUAGE>(LANGUAGES.find(lang => lang.code === langCodeOnStore) || LANGUAGES[0]);
@@ -40,25 +40,18 @@ function LangSelector() {
 
 
     return (
-        <Box sx={{display: "inline-block"}}>
-            <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{
-                    p: 0,
-                    background: "black",
-                    "&:hover": {
-                        // backgroundColor: '#ffffff'
-                    },
-                }}
-            >
+        <>
+            <IconButton component={"div"} className={"App-logo"} onClick={handleOpenUserMenu} sx={{fontSize: "0rem"}}>
                 <img
-                    src={`./${language.code}.png`}
-                    className={"Avatar-logo App-language"}
+                    style={{background: "black", borderRadius: "50%"}}
+                    color={"red"}
+                    src={`/${language.code}.png`}
+                    className={"App-logo-img App-language"}
                     alt={"bandera que representa el idioma"}
                 />
                 <Typography
                     fontWeight={"500"}
-                    fontSize={"2.5rem"}
+                    fontSize={"2rem"}
                     color={"rgba(255,255,255,0.71)"}
                     sx={{position: "absolute", left: "0", right: "0"}}>
                     {language.code.toUpperCase()}
@@ -97,7 +90,7 @@ function LangSelector() {
                     >
                         <img
                             src={`./${language.code}.png`}
-                            className={"Avatar-logo App-language"}
+                            className={"App-logo App-logo-menu-language"}
                             alt={"bandera que representa el idioma"}
                         />
                         <Typography sx={{marginLeft: ".7rem"}}>
@@ -106,9 +99,9 @@ function LangSelector() {
                     </MenuItem>
                 ))}
             </Menu>
-        </Box>
+        </>
     );
 }
 
 
-export default LangSelector;
+export default LangAvatarSelector;

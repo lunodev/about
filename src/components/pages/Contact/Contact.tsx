@@ -18,11 +18,11 @@ function Contact(props: {data: any}) {
     return (
         <>
             <ResponsiveAppBar/>
-            <div className="AppSection">
-                <h1 className={"Section-Title"}>
+            <div className="App-Section">
+                <h1 className={"Section-title"}>
                     {capitalize(props.data[currentLang].Contact.label)}
                 </h1>
-                <h2 className={"Section-SubTitle"}>
+                <h2 className={"Section-subtitle"}>
                     {capitalize(props.data[currentLang].Contact.Info.label)}
                 </h2>
                 <p>

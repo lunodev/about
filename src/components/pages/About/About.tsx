@@ -18,11 +18,11 @@ function About(props: {data: any}) {
     return (
         <>
             <ResponsiveAppBar/>
-            <div className="AppSection">
-                <h1 className={"Section-Title"}>
+            <div className="App-Section">
+                <h1 className={"Section-title"}>
                     {capitalize(props.data[currentLang].About.label)}
                 </h1>
-                <p className="AppSectionParagraph">{props.data[currentLang].About.presentation}</p>
+                <p className="App-Section-Paragraph">{props.data[currentLang].About.presentation}</p>
             </div>
         </>
     );
