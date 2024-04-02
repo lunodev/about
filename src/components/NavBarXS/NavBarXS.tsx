@@ -1,4 +1,3 @@
-import {LANG_CODE} from "../../constants/languages";
 import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -8,9 +7,11 @@ import {Link} from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import {JsonData} from "../../data/data";
+import useLangSelector from "../../hooks/useLangSelector";
 
-function NavBarXS(props: { currentLang: LANG_CODE }) {
-    const {currentLang} = props;
+
+function NavBarXS() {
+    const {currentLang} = useLangSelector();
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {

@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from "react";
-import Typography from "@mui/material/Typography";
+import React from "react";
 import {capitalize} from "@mui/material";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
-import {useAppSelector} from "../../../app/hooks";
 import useLangSelector from "../../../hooks/useLangSelector";
 
 

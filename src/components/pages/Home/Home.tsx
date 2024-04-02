@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
-import Typography from "@mui/material/Typography";
+import React from "react";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
-import {useAppSelector} from "../../../app/hooks";
 import {capitalize} from "@mui/material";
 import useLangSelector from "../../../hooks/useLangSelector";
+import Building from "../../Building/Building";
 
 
 function Home(props: {data: any}) {
@@ -18,8 +17,10 @@ function Home(props: {data: any}) {
                     {capitalize(props.data[currentLang].Home.label)}
                 </h1>
             </div>
+            <Building/>
         </>
     );
 }
+
 
 export default Home;

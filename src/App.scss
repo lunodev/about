@@ -4,6 +4,12 @@ a {
   cursor: pointer;
 }
 
+a.LogoNickname {
+  padding: 0 1rem;
+  height: 100%;
+  align-content: center;
+}
+
 ul {
   background-color: #ed6c02;
   color: white;
@@ -14,15 +20,6 @@ ul {
   color: white;
   text-align: center;
   min-height: 100vh;
-}
-
-.App-Bar {
-  display: flex;
-  justify-content: center;
-}
-
-.App-Section {
-  //padding: .1rem .1rem;
 }
 
 .App-Section-Paragraph {
@@ -42,8 +39,8 @@ ul {
 }
 
 .App-logo {
-  font-size: 0rem;
-  padding: 0rem;
+  font-size: 0;
+  padding: 0;
   width: 4rem;
   height: 4rem;
 }
@@ -60,6 +57,11 @@ ul {
 
 .Menu-pages {
   color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.Center-Content {
   display: flex;
   justify-content: center;
 }
@@ -88,14 +90,6 @@ ul {
   color: yellow;
 }
 
-.css-r6ewbb-MuiToolbar-root {
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //justify-content: center;
-  //font-size: calc(10px + 2vmin);
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -110,7 +104,7 @@ ul {
 @media only screen and (min-width: 400px) {
   .App-Section-Paragraph {
     letter-spacing: .13rem;
-    margin: 0rem 3rem;
+    margin: 0 3rem;
   }
 }
 

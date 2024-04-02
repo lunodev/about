@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {LANGUAGE, LANGUAGES} from "../../constants/languages";
-import {Box} from '@mui/material';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {setCurrentLang} from "../../features/langSelector/langSelector";
 import IconButton from "@mui/material/IconButton";
@@ -9,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 
 
-function LangAvatarSelector() {
+function LangSelectorAvatar() {
     const dispatch = useAppDispatch();
     const langCodeOnStore = useAppSelector(state => state.langSelector.value);
     const [language, updateLanguage] = useState<LANGUAGE>(LANGUAGES.find(lang => lang.code === langCodeOnStore) || LANGUAGES[0]);
@@ -104,4 +103,4 @@ function LangAvatarSelector() {
 }
 
 
-export default LangAvatarSelector;
+export default LangSelectorAvatar;

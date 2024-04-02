@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import Typography from "@mui/material/Typography";
 import {capitalize} from "@mui/material";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
 import {useAppSelector} from "../../../app/hooks";
+import Building from "../../Building/Building";
 
 
 function Blog(props: {data: any}) {
@@ -22,8 +22,8 @@ function Blog(props: {data: any}) {
                 <h1 className={"Section-title"}>
                     {capitalize(props.data[currentLang].Blog.label)}
                 </h1>
-                <p>Blog en construcción</p>
             </div>
+            <Building/>
         </>
     );
 }

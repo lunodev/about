@@ -4,14 +4,19 @@ import * as React from "react";
 
 
 function LogoNickname() {
-    return <Typography
-        component={"div"}
-        variant={"h6"}
-    >
-        <Link to={"/about/about"}>
-            {`Cheko Devs`}
+    return (
+        <Link
+            className={"LogoNickname"}
+            to={"/about/about"}
+        >
+            <Typography
+                component={"div"}
+                variant={"h6"}
+            >
+                {`Cheko Devs`}
+            </Typography>
         </Link>
-    </Typography>;
+    );
 }
 
 

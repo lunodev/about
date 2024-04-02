@@ -4,7 +4,7 @@ import logo from "../../assets/logo193.png";
 import * as React from "react";
 
 
-function ChekoAvatar() {
+function ChekoDevsAvatar() {
     return <IconButton component={"div"} className={"App-logo"}>
         <Link style={{display: "flex"}} to={`/about/about`}>
             <img
@@ -17,4 +17,4 @@ function ChekoAvatar() {
 }
 
 
-export default ChekoAvatar;
+export default ChekoDevsAvatar;
