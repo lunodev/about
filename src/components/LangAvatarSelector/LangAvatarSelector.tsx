@@ -45,7 +45,7 @@ function LangAvatarSelector() {
                 <img
                     style={{background: "black", borderRadius: "50%"}}
                     color={"red"}
-                    src={`/${language.code}.png`}
+                    src={`./${language.code}.png`}
                     className={"App-logo-img App-language"}
                     alt={"bandera que representa el idioma"}
                 />
