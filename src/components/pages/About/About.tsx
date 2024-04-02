@@ -3,16 +3,11 @@ import Typography from "@mui/material/Typography";
 import ResponsiveAppBar from "../../ResponsiveAppBar/ResponsiveAppBar";
 import {useAppSelector} from "../../../app/hooks";
 import {capitalize} from "@mui/material";
+import useLangSelector from "../../../hooks/useLangSelector";
 
 
 function About(props: {data: any}) {
-    const langSelector = useAppSelector(state => state.langSelector)
-    const [currentLang, setCurrentLang] = useState(langSelector.value)
-
-
-    useEffect(() => {
-        setCurrentLang(langSelector.value)
-    }, [langSelector.value]);
+    const {currentLang} = useLangSelector();
 
 
     return (
