@@ -1,6 +1,6 @@
 import {PAGES} from "../../constants/pages";
 import Button from "@mui/material/Button";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {JsonData} from "../../data/data";
 import * as React from "react";
 import useLangSelector from "../../hooks/useLangSelector";
@@ -14,14 +14,18 @@ function NavBar() {
         <>
             {PAGES.map((page: string) => {
                 return (
-                    <Link to={`/about/${page.toLowerCase()}`}>
+                    <NavLink
+                        to={`/about/${page.toLowerCase()}`}
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "active" : ""}
+                    >
                         <Button
                             key={page}
-                            sx={{height: "100%", color: "white"}}
+                            sx={{height: "100%", color: "inherit"}}
                         >
                             {(JsonData as any)[currentLang][page].label}
                         </Button>
-                    </Link>
+                    </NavLink>
                 );
             })}
         </>

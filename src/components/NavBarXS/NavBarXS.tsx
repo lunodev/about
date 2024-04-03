@@ -3,11 +3,12 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import {PAGE, PAGES} from "../../constants/pages";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import {JsonData} from "../../data/data";
 import useLangSelector from "../../hooks/useLangSelector";
+import { Button } from "@mui/material";
 
 
 function NavBarXS() {
@@ -54,16 +55,21 @@ function NavBarXS() {
             >
                 {PAGES.map((page: PAGE) => {
                     return (
-                        <Link to={`/about/${page.toLowerCase()}`}>
-                            <MenuItem
+                        <NavLink
+                            key={page}
+                            to={`/about/${page.toLowerCase()}`}
+                            onClick={handleCloseNavMenu}
+                            className={
+                            ({isActive, isPending}) => isPending ? "pending" : (isActive ? "active" : "") + " " + "menu-item-XS"
+                        }
+                        >
+                            <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                sx={{height: "100%", color: "inherit"}}
                             >
-                                <Typography fontWeight={"normal"}>
-                                    {(JsonData as any)[currentLang][page].label.toUpperCase()}
-                                </Typography>
-                            </MenuItem>
-                        </Link>
+                                {(JsonData as any)[currentLang][page].label.toUpperCase()}
+                            </Button>
+                        </NavLink>
                     );
                 })}
             </Menu>
