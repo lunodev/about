@@ -1,23 +1,31 @@
-import * as React from "react";
+import {useState, MouseEvent} from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
-import {PAGE, PAGES} from "../../constants/pages";
-import {Link, NavLink} from "react-router-dom";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
+import {ACTIVE_PAGE, PAGES} from "../../constants/pages";
+import {NavLink} from "react-router-dom";
 import {JsonData} from "../../data/data";
 import useLangSelector from "../../hooks/useLangSelector";
 import { Button } from "@mui/material";
+import useActivePage from "../../hooks/useActivePage";
 
 
 function NavBarXS() {
     const {currentLang} = useLangSelector();
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const {currentActivePage, updateActivePageOnStore} = useActivePage();
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+
+    const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
+
+    const handleClickNavMenu = (page: ACTIVE_PAGE) => {
+        updateActivePageOnStore(page);
+        handleCloseNavMenu();
+    };
+
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
@@ -53,15 +61,13 @@ function NavBarXS() {
                     display: {xs: "block", md: "none"},
                 }}
             >
-                {PAGES.map((page: PAGE) => {
+                {PAGES.map((page: ACTIVE_PAGE) => {
                     return (
                         <NavLink
+                            className={({isActive, isPending}) => isPending ? "pending" : (isActive || page === currentActivePage ? "active" : "") + " " + "menu-item-XS"}
                             key={page}
                             to={`/about/${page.toLowerCase()}`}
-                            onClick={handleCloseNavMenu}
-                            className={
-                            ({isActive, isPending}) => isPending ? "pending" : (isActive ? "active" : "") + " " + "menu-item-XS"
-                        }
+                            onClick={() => handleClickNavMenu(page)}
                         >
                             <Button
                                 key={page}

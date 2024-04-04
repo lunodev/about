@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {LANGUAGE, LANGUAGES} from "../../constants/languages";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {setCurrentLang} from "../../features/langSelector/langSelector";
+import {setCurrentLang} from "../../features/langSelector";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";

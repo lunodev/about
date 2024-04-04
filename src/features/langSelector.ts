@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {LANG_EN} from "../../constants/languages";
+import {LANG_EN} from "../constants/languages";
 
 
 export const langSelector = createSlice({
-    name: 'selector',
+    name: 'langSelector',
     initialState: {
         value: LANG_EN,
     },

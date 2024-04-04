@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import langSelectorReducer from '../features/langSelector/langSelector'
+import langSelectorReducer from '../features/langSelector'
+import activePageReducer from '../features/activePage'
 
 
 export const store = configureStore({
     reducer: {
         langSelector: langSelectorReducer,
+        activePage: activePageReducer,
     },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
