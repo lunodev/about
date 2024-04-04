@@ -15,7 +15,8 @@ function ResponsiveAppBar() {
             <AppBar className={"App-Bar"} position={"static"} color={"warning"}>
                 <Toolbar>
                     <Grid container>
-                        <Grid className={"Logo-nickname Center-Content"} item xs={2} sm={3} sx={{display: {xs: 'none', sm: 'flex'}}}>
+                        <Grid className={"Logo-nickname Center-Content"} item xs={2} sm={3}
+                              sx={{display: {xs: 'none', sm: 'flex'}}}>
                             <LogoNickname/>
                         </Grid>
                         <Grid className={"Menu-pages-xs"} item xs={2} sx={{display: {xs: 'flex', sm: 'none'}}}>
