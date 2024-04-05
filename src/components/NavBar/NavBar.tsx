@@ -5,7 +5,7 @@ import {JsonData} from "../../data/data";
 import * as React from "react";
 import useLangSelector from "../../hooks/useLangSelector";
 import {useAppDispatch} from "../../app/hooks";
-import {setActivePage} from "../../features/activePage";
+import {setActivePage} from "../../reducers/activePage";
 import useActivePage from "../../hooks/useActivePage";
 
 
@@ -16,12 +16,13 @@ function NavBar() {
 
     return (
         <>
-            {PAGES.map((page: ACTIVE_PAGE) => {
+            {PAGES.map((page: ACTIVE_PAGE, index: number) => {
                 return (
                     <NavLink
-                        onClick={()=>updateActivePageOnStore(page)}
+                        className={({ isActive, isPending }) => isPending ? "pending" : page === currentActivePage ? "active" : isActive ? "active" : ""}
+                        key={`${index}-${page}`}
+                        onClick={() => updateActivePageOnStore(page)}
                         to={`/about/${page.toLowerCase()}`}
-                        className={({ isActive, isPending }) => isPending ? "pending" : isActive || page === currentActivePage ? "active" : ""}
                     >
                         <Button
                             key={page}

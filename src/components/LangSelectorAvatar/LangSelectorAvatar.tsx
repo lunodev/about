@@ -1,31 +1,21 @@
-import React, {useEffect, useState} from 'react'
-import {LANGUAGE, LANGUAGES} from "../../constants/languages";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {setCurrentLang} from "../../features/langSelector";
+import React from 'react'
+import {LANG_CODE, LANGUAGES} from "../../constants/languages";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
+import useLangSelector from "../../hooks/useLangSelector";
 
 
 function LangSelectorAvatar() {
-    const dispatch = useAppDispatch();
-    const langCodeOnStore = useAppSelector(state => state.langSelector.value);
-    const [language, updateLanguage] = useState<LANGUAGE>(LANGUAGES.find(lang => lang.code === langCodeOnStore) || LANGUAGES[0]);
+    const {currentLang, updateCurrentLang} = useLangSelector();
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-    const updateLanguageOnStore = () => dispatch(setCurrentLang(language.code));
-
-
-    useEffect(() => {
-        updateLanguageOnStore()
-    }, [language]);
 
 
     const handleOnChangeLanguage = (
-        value: LANGUAGE | null
+        value: LANG_CODE,
     ): void => {
-        updateLanguage(value || LANGUAGES[0]);
+        updateCurrentLang(value);
         handleCloseUserMenu();
     };
 
@@ -44,7 +34,7 @@ function LangSelectorAvatar() {
                 <img
                     style={{background: "black", borderRadius: "50%"}}
                     color={"red"}
-                    src={`./${language.code}.png`}
+                    src={`./${currentLang}.png`}
                     className={"App-logo-img App-language"}
                     alt={"bandera que representa el idioma"}
                 />
@@ -53,7 +43,7 @@ function LangSelectorAvatar() {
                     fontSize={"2rem"}
                     color={"rgba(255,255,255,0.71)"}
                     sx={{position: "absolute", left: "0", right: "0"}}>
-                    {language.code.toUpperCase()}
+                    {currentLang.toUpperCase()}
                 </Typography>
             </IconButton>
             {/*<Autocomplete
@@ -67,7 +57,7 @@ function LangSelectorAvatar() {
                 onChange={handleOnChangeLanguage}
             />*/}
             <Menu
-                onBackdropClick={handleCloseUserMenu}
+                onClose={handleCloseUserMenu}
                 sx={{mt: '45px'}}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
@@ -84,7 +74,7 @@ function LangSelectorAvatar() {
             >
                 {LANGUAGES.map(language => (
                     <MenuItem
-                        onClick={() => handleOnChangeLanguage(language)}
+                        onClick={() => handleOnChangeLanguage(language.code)}
                         key={language.code}
                     >
                         <img

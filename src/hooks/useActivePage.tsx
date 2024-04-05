@@ -1,7 +1,7 @@
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {useEffect, useState} from "react";
 import {ACTIVE_PAGE} from "../constants/pages";
-import {setActivePage} from "../features/activePage";
+import {setActivePage} from "../reducers/activePage";
 
 
 function useActivePage() {

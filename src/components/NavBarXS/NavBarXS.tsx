@@ -8,6 +8,7 @@ import {JsonData} from "../../data/data";
 import useLangSelector from "../../hooks/useLangSelector";
 import { Button } from "@mui/material";
 import useActivePage from "../../hooks/useActivePage";
+import {getClassNameItemMenu} from "../../utils/StylesUtils";
 
 
 function NavBarXS() {
@@ -61,11 +62,11 @@ function NavBarXS() {
                     display: {xs: "block", md: "none"},
                 }}
             >
-                {PAGES.map((page: ACTIVE_PAGE) => {
+                {PAGES.map((page: ACTIVE_PAGE, index: number) => {
                     return (
                         <NavLink
-                            className={({isActive, isPending}) => isPending ? "pending" : (isActive || page === currentActivePage ? "active" : "") + " " + "menu-item-XS"}
-                            key={page}
+                            className={({isActive, isPending}) => getClassNameItemMenu({isActive, isPending, page, currentActivePage})}
+                            key={`${index}-${page}`}
                             to={`/about/${page.toLowerCase()}`}
                             onClick={() => handleClickNavMenu(page)}
                         >
