@@ -20,8 +20,8 @@ function App() {
 
 
     useEffect(() => {
-        updateActivePageOnStore(ACTIVE_PAGE.HOME)
-        navigate(`/about/${ACTIVE_PAGE.HOME.toLowerCase()}`)
+        // updateActivePageOnStore(ACTIVE_PAGE.HOME)
+        // navigate(`/about/${ACTIVE_PAGE.ABOUT.toLowerCase()}`)
     }, []);
 
 
