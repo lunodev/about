@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import LangSelectorAvatar from "../LangSelectorAvatar/LangSelectorAvatar";
 import {Grid} from '@mui/material';
-import ChekoDevsAvatar from "../ChekoDevsAvatar/ChekoDevsAvatar";
+import LUnoDevAvatar from "../LUnoDev/LUnoDevAvatar";
 import LogoNickname from "../LogoNickname/LogoNickname";
 import NavBarXS from "../NavBarXS/NavBarXS";
 import NavBar from "../NavBar/NavBar";
@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
                             <NavBar/>
                         </Grid>
                         <Grid className={"Avatars-group"} item xs={4} sm={3}>
-                            <ChekoDevsAvatar/>
+                            <LUnoDevAvatar/>
                             <LangSelectorAvatar/>
                         </Grid>
                     </Grid>

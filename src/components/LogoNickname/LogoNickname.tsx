@@ -13,7 +13,7 @@ function LogoNickname() {
                 component={"div"}
                 variant={"h6"}
             >
-                {`Cheko Devs`}
+                {`LUNO Dev`}
             </Typography>
         </Link>
     );
